@@ -1,7 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System;
 using EspacioCalculadora;
-Console.WriteLine("Hello, World!");
 
 namespace TuEspacioDeNombre
 {
@@ -15,11 +14,27 @@ namespace TuEspacioDeNombre
 
             while (!salir)
             {
-                Console.WriteLine("Calculadora");
-                Console.WriteLine("Ingrese una operación (+, -, *, /) seguida del valor o 'exit' para salir:");
+                string input = "";
 
-                string input = Console.ReadLine();
+                while (true)
+                {
+                    Console.WriteLine("Ingrese una operación (+, -, *, /) seguida del valor o 'exit' para salir:");
+                    input = Console.ReadLine();
 
+                    if (input == null)
+                    {
+                        Console.WriteLine("Entrada inválida. Inténtelo de nuevo.");
+                        continue;
+                    }
+
+                    if (string.IsNullOrEmpty(input.Trim()))
+                    {
+                        Console.WriteLine("Entrada inválida. Inténtelo de nuevo.");
+                        continue;
+                    }
+
+                    break;
+                }
                 if (input.ToLower() == "exit")
                 {
                     salir = true;
