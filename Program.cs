@@ -32,7 +32,6 @@ namespace TuEspacioDeNombre
                         Console.WriteLine("Entrada inválida. Inténtelo de nuevo.");
                         continue;
                     }
-
                     break;
                 }
                 if (input.ToLower() == "exit")
@@ -41,8 +40,18 @@ namespace TuEspacioDeNombre
                 }
                 else
                 {
-                    char operacion = input[0];
-                    double valor = double.Parse(input.Substring(1));
+                    if (input.Length <= 1)
+                    {
+                        Console.WriteLine("Entrada inválida. Inténtelo de nuevo.");
+                        continue;
+                    }
+
+                    string numericInput = input.Substring(1);
+                    if (!double.TryParse(numericInput, out double valor))
+                    {
+                        Console.WriteLine("Valor numérico inválido. Inténtelo de nuevo.");
+                        continue;
+                    }
 
                     switch (operacion)
                     {
