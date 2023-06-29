@@ -1,8 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
-using System;
-using EspacioCalculadora;
+﻿using System;
 
-namespace TuEspacioDeNombre
+namespace EspacioCalculadora
 {
     class Program
     {
@@ -45,6 +43,8 @@ namespace TuEspacioDeNombre
                         Console.WriteLine("Entrada inválida. Inténtelo de nuevo.");
                         continue;
                     }
+
+                    char operacion = input[0]; // Obtener el primer carácter de la entrada
 
                     string numericInput = input.Substring(1);
                     if (!double.TryParse(numericInput, out double valor))
